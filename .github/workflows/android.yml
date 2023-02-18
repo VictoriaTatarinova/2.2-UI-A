@@ -2,55 +2,45 @@ name: Android CI
 
 on:
   push:
-<<<<<<< HEAD
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-=======
     branches: [ master, main ]
   pull_request:
     branches: [ master, main ]
->>>>>>> babd79205e081cf2e03559b72dc6432f8ae0b4ea
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: set up JDK 11
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
-        distribution: 'adopt'
-        cache: gradle
+      - uses: actions/checkout@v2
+      - name: set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+          cache: gradle
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-    
-    - name: Build with Gradle
-      run: ./gradlew build
-      
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build
+
   test:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: set up JDK 11
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
-        distribution: 'adopt'
-        cache: gradle
+      - uses: actions/checkout@v2
+      - name: set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+          cache: gradle
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-      
-    - name: run tests
-      uses: reactivecircus/android-emulator-runner@v2
-      with:
-        api-level: 29
-<<<<<<< HEAD
-        script: ./gradlew connectedCheck
-=======
-        script: ./gradlew connectedCheck
->>>>>>> babd79205e081cf2e03559b72dc6432f8ae0b4ea
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: run tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: ./gradlew connectedCheck
