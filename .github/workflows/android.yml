@@ -2,9 +2,15 @@ name: Android CI
 
 on:
   push:
+<<<<<<< HEAD
     branches: [ master ]
   pull_request:
     branches: [ master ]
+=======
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+>>>>>>> babd79205e081cf2e03559b72dc6432f8ae0b4ea
 
 jobs:
   build:
@@ -43,4 +49,8 @@ jobs:
       uses: reactivecircus/android-emulator-runner@v2
       with:
         api-level: 29
+<<<<<<< HEAD
         script: ./gradlew connectedCheck
+=======
+        script: ./gradlew connectedCheck
+>>>>>>> babd79205e081cf2e03559b72dc6432f8ae0b4ea
